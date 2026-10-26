@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sổ tay ZAIC 2026</title>
+<meta name="description" content="Sổ tay của nhóm thi bảng DataMate, Zalo AI Challenge 2026: đề bài, đánh giá, quy tắc và hướng tiếp cận.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: dark;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: oklch(35% 0.105 256); --color-paper-2: oklch(31% 0.10 257); --color-paper-3: oklch(26.5% 0.095 258);
+  --color-ink: oklch(97% 0.012 240); --color-ink-2: oklch(90% 0.025 242); --color-muted: oklch(80% 0.045 244);
+  --color-rule: oklch(93% 0.02 240 / 0.85); --color-rule-2: oklch(93% 0.02 240 / 0.32);
+  --color-grid: oklch(97% 0.01 240 / 0.09); --color-grid-2: oklch(97% 0.01 240 / 0.2);
+  --color-accent: oklch(97% 0.012 240); --color-accent-ink: oklch(33% 0.105 256); --color-focus: oklch(97% 0.012 240);
+  --font-display: "Chakra Petch", ui-sans-serif, sans-serif; --font-body: "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 2px; --shadow-card: none;
+  --tracking-display: -0.012em; --display-weight: 600; --sheet-inset: 20px; --tick: 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight, 700); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { max-width: 20ch; font-size: var(--text-display); } h2 { max-width: 30ch; font-size: var(--text-section); } h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.2; }
+.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 52ch; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(> img) > :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+/* photographs: duotone paper-3 ink con=30 exp=-10 */
+[data-slot]:has(> img) { isolation: isolate; background: var(--color-ink); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
+[data-slot] > img { z-index: 0; filter: grayscale(1) contrast(1.3) brightness(0.9); mix-blend-mode: multiply; }
+[data-slot]:has(> img)::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--color-paper-3); mix-blend-mode: lighten; pointer-events: none; }
+
+/* Hallmark · shape: Index-First hub, eight views behind one tab bar · genre: modern-minimal · theme: Blueprint (deal 2/3, seed internal-team-hub-3-person-d6c7·3701de72·2026-10-26·r0) · job: none, an internal reference for a three-person team · draw: manual
+ * hero: Banner · nav: slab tab bar, wordmark over a scrolling tab row · footer: colophon block · imagery: none, the schedule drawn as a dimension string · signature: the official contest calendar from 26/10 to 12/12 as a dimension string with today ticked · blueprint: cyanotype
+ * axes: mid/geometric-sans/neutral · posture: drenched · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: H, eight views of tables risk one flat register; each view leads with one drawing (dimension string, elevation or title block) before its tables */
+/* Hallmark · dismissed 58 · the page total counts eight views; the tab bar shows one view at a time, each a register the team reads at a desk */
+
+:root {
+  --nav-h: 64px;
+  --row-h: 56px;
+}
+
+.container {
+  padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: var(--z-sticky-nav);
+  background: var(--color-paper-3);
+}
+
+h1, h2 { text-transform: uppercase; line-height: 1.02; }
+.num, code, pre { font-family: var(--font-outlier); font-weight: 500; }
+code { font-size: 0.92em; }
+
+/* Skip link */
+.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-accent-ink); }
+.skip:focus-visible { top: var(--space-md); }
+
+/* Nav: slab */
+.slab {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: var(--z-sticky-nav);
+  background: var(--color-paper-3);
+  border-bottom: var(--rule-hair) solid var(--color-rule-2);
+}
+.slab__inner { display: flex; align-items: center; gap: var(--space-xl); min-height: var(--nav-h); }
+.wordmark { font: 600 var(--text-lg)/1 var(--font-display); letter-spacing: var(--tracking-display); text-transform: uppercase; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+.wordmark:hover { color: var(--color-ink-2); }
+.tabs { display: flex; gap: var(--space-2xs); margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-sm);
+  font-size: var(--text-sm); font-weight: 500; color: var(--color-ink-2); text-decoration: none; white-space: nowrap;
+  border-bottom: var(--rule-heavy) solid transparent;
+  transition: color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+}
+.tabs a:hover { color: var(--color-ink); border-bottom-color: var(--color-rule-2); }
+.tabs a:active { color: var(--color-ink-2); }
+.tabs a[aria-current="page"] { color: var(--color-ink); border-bottom-color: var(--color-ink); }
+
+/* Views */
+.view { padding-block: var(--space-2xl) var(--section-gap-s); }
+.view + .view { border-top: var(--rule-heavy) solid var(--color-rule-2); }
+.js .view + .view { border-top: 0; }
+.view__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--gap-columns); align-items: end; padding-bottom: var(--space-2xl); }
+.view__head h1, .view__head h2.as-h1 { grid-column: 1 / span 7; font-size: var(--text-display-s); max-width: 24ch; }
+.view__head .lead { grid-column: 8 / span 5; color: var(--color-ink-2); }
+.block { padding-block: var(--space-2xl) 0; }
+.block + .block { margin-top: var(--space-2xl); }
+.block > h2 { margin-bottom: var(--space-xl); }
+.block__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-md) var(--gap-columns); align-items: end; margin-bottom: var(--space-xl); }
+.block__head h2 { grid-column: 1 / span 7; }
+.block__head p { grid-column: 8 / span 5; color: var(--color-ink-2); }
+
+/* Hero */
+.hero { padding-block: var(--space-3xl) var(--space-2xl); }
+.hero__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--gap-columns); align-items: end; }
+.hero h1 { grid-column: 1 / span 8; font-size: var(--text-display-s); max-width: none; }
+.hero__side { grid-column: 9 / span 4; display: grid; gap: var(--space-lg); }
+.hero__side .lead { color: var(--color-ink-2); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.team-line { font-size: var(--text-sm); color: var(--color-muted); }
+.team-line strong { color: var(--color-ink); font-weight: 500; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-lg);
+  border: var(--rule-hair) solid var(--color-rule); border-radius: 0; background: transparent; color: var(--color-ink);
+  font: 500 var(--text-md)/1 var(--font-body); text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+}
+.btn:hover { background: var(--color-paper-2); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn--primary { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-ink-2); }
+
+/* The calendar as a dimension string (signature) */
+.sheet {
+  position: relative;
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl) var(--sheet-inset) var(--space-lg);
+  border: var(--rule-hair) solid var(--color-rule);
+  background-color: var(--color-paper-2);
+  background-image:
+    linear-gradient(var(--color-grid-2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-2) 1px, transparent 1px),
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  background-position: var(--sheet-inset) var(--sheet-inset);
+}
+.sheet::after { content: ""; position: absolute; inset: 5px; border: var(--rule-hair) solid var(--color-rule-2); pointer-events: none; }
+.sheet__title { display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-xl); font-size: var(--text-sm); color: var(--color-ink-2); position: relative; z-index: var(--z-raised); }
+.cal { position: relative; z-index: var(--z-raised); list-style: none; margin: 0; padding: 0; height: 15rem; }
+.cal__line { position: absolute; left: 0; right: 0; top: 50%; }
+.dim { position: relative; height: var(--rule-hair); background: var(--color-rule); }
+.dim::before, .dim::after { content: ""; position: absolute; top: calc(var(--tick) / -2); width: var(--rule-hair); height: var(--tick); background: var(--color-rule); transform: rotate(45deg); }
+.dim::before { left: 0; } .dim::after { right: 0; }
+.cal__ev { position: absolute; left: var(--x); top: 50%; width: 0; }
+.cal__ev::before { content: ""; position: absolute; left: 0; width: var(--rule-hair); background: var(--color-rule); }
+.cal__ev .t { position: absolute; left: 0; width: max-content; max-width: 11rem; padding-left: var(--space-xs); font-size: var(--text-sm); line-height: 1.35; color: var(--color-ink-2); }
+.cal__ev .t b { display: block; font-family: var(--font-outlier); font-weight: 500; color: var(--color-ink); }
+.cal__ev.up::before { bottom: 0; height: 3.25rem; }
+.cal__ev.up .t { bottom: 3.25rem; }
+.cal__ev.down::before { top: 0; height: 3.25rem; }
+.cal__ev.down .t { top: 3.25rem; }
+.cal__ev.end .t { left: auto; right: 0; padding-left: 0; padding-right: var(--space-xs); text-align: right; }
+.cal__ev.hard::before { width: var(--rule-heavy); }
+.cal__ev.hard .t b { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
+.cal__span { position: absolute; left: var(--x); width: var(--w); top: calc(50% - 5px); height: 10px; border: var(--rule-hair) solid var(--color-rule); background: var(--color-paper-3); }
+.sheet__foot { position: relative; z-index: var(--z-raised); margin-top: var(--space-md); display: flex; justify-content: space-between; font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Elevation: two options parted by one heavy line */
+.elev { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.elev > * { padding: var(--space-xl) var(--space-xl) var(--space-xl) 0; min-width: 0; }
+.elev > * + * { padding-left: var(--space-xl); padding-right: 0; border-left: var(--rule-heavy) solid var(--color-rule); }
+.elev h3 { margin-bottom: var(--space-2xs); }
+.elev .subtitle { margin-bottom: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); }
+.elev p { color: var(--color-ink-2); }
+.elev dl { margin: var(--space-lg) 0 0; display: grid; gap: var(--space-sm); }
+.elev dt { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
+.elev dd { margin: 0; }
+.picked { color: var(--color-ink); font-weight: 500; }
+
+/* Figures as dimensions */
+.figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.figs > div { padding-inline: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); }
+.figs > :first-child { padding-left: 0; border-left: 0; }
+.figs b { display: block; font: 600 var(--text-display-s)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-display); }
+.figs b small { font: 500 var(--text-md)/1 var(--font-outlier); margin-left: var(--space-2xs); }
+.figs span { display: block; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); max-width: 22ch; }
+
+/* Registers (tables) */
+.reg-wrap { overflow-x: auto; }
+.reg { width: 100%; border-collapse: collapse; font-size: var(--text-md); }
+.reg th { text-align: left; font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); padding: var(--space-sm) var(--space-md) var(--space-sm) 0; border-bottom: var(--rule-heavy) solid var(--color-rule); white-space: nowrap; vertical-align: bottom; }
+.reg td { padding: var(--space-md) var(--space-md) var(--space-md) 0; border-bottom: var(--rule-hair) solid var(--color-rule-2); vertical-align: top; color: var(--color-ink-2); }
+.reg td:first-child, .reg th:first-child { padding-left: 0; }
+.reg td.name { color: var(--color-ink); font-weight: 500; }
+.reg td.code { font-family: var(--font-outlier); font-weight: 500; color: var(--color-ink); white-space: nowrap; }
+.reg td.no { font-family: var(--font-outlier); font-weight: 500; color: var(--color-ink); width: 3.5rem; }
+.reg tr.gate td { background: var(--color-paper-3); color: var(--color-ink); }
+.reg tr.gate td:first-child { padding-left: var(--space-sm); }
+.reg tr.all td { color: var(--color-ink); }
+.reg a { color: var(--color-ink); }
+.reg a:hover { text-decoration: none; }
+.reg--sheet { background: var(--color-paper-2); }
+.reg--sheet td:first-child, .reg--sheet th:first-child { padding-left: var(--space-md); }
+
+/* Index rows on the home view */
+.index { list-style: none; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.index li { border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+.index a { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--gap-columns); align-items: baseline; padding-block: var(--space-lg); text-decoration: none; transition: background-color var(--dur-short) var(--ease-out); }
+.index a:hover { background: var(--color-paper-2); }
+.index a:active { background: var(--color-paper-3); }
+.index .num { color: var(--color-muted); }
+.index h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.index a:hover h3 { text-decoration: none; }
+.index p { color: var(--color-ink-2); }
+
+/* Code */
+pre { margin: 0; padding: var(--space-lg); overflow-x: auto; background: var(--color-paper-3); border: var(--rule-hair) solid var(--color-rule-2); font-size: var(--text-sm); line-height: 1.6; color: var(--color-ink); white-space: pre; }
+.io { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-2xl) var(--gap-columns); align-items: start; }
+.io dl { margin: 0; display: grid; gap: var(--space-lg); }
+.io dt { font-family: var(--font-display); font-weight: 600; font-size: var(--text-title); color: var(--color-ink); }
+.io dd { margin: var(--space-2xs) 0 0; color: var(--color-ink-2); }
+.io figure { margin: 0; display: grid; gap: var(--space-sm); min-width: 0; }
+.io figcaption { font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Score elevation */
+.score { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: var(--rule-hair) solid var(--color-rule); }
+.score > div { padding: var(--space-xl); min-width: 0; }
+.score > div + div { border-left: var(--rule-hair) solid var(--color-rule); }
+.score b { display: block; font: 600 var(--text-display)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+.score span { display: block; margin-top: var(--space-sm); color: var(--color-ink-2); }
+.score .lead-cell { background: var(--color-ink); color: var(--color-accent-ink); }
+.score .lead-cell span { color: var(--color-accent-ink); }
+.note { margin-top: var(--space-lg); padding: var(--space-lg) var(--space-xl); border-left: var(--rule-heavy) solid var(--color-ink); background: var(--color-paper-2); color: var(--color-ink); max-width: 72ch; }
+
+/* Pipeline run along one dimension string */
+.run { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--gap-columns); counter-reset: st; position: relative; padding-top: var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.run li { counter-increment: st; position: relative; min-width: 0; }
+.run li::before { content: counter(st); display: block; font: 600 var(--text-3xl)/1 var(--font-display); margin-bottom: var(--space-sm); }
+.run li::after { content: ""; position: absolute; top: calc(-1 * var(--space-xl) - var(--tick) / 2); left: 0; width: var(--rule-hair); height: var(--tick); background: var(--color-rule); transform: rotate(45deg); }
+.run h3 { margin-bottom: var(--space-xs); }
+.run p { color: var(--color-ink-2); font-size: var(--text-md); }
+.run .who { display: block; margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Title block (team) */
+.tblock { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); border: var(--rule-hair) solid var(--color-rule); }
+.tblock > div { padding: var(--space-md) var(--space-lg) var(--space-lg); border-right: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); min-width: 0; display: grid; gap: var(--space-xs); align-content: start; }
+.tblock .w12 { grid-column: span 12; border-right: 0; }
+.tblock .w4 { grid-column: span 4; }
+.tblock .w4:nth-child(4) { border-right: 0; }
+.tblock label { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
+.tblock input {
+  width: 100%; min-height: 48px; padding: 0 var(--space-md);
+  border: var(--rule-hair) solid var(--color-muted); border-radius: 0; background: var(--color-paper-2); color: var(--color-ink);
+  font: 500 var(--text-lg)/1.2 var(--font-body);
+  outline: 2px solid transparent; outline-offset: -3px;
+}
+.tblock input::placeholder { color: var(--color-muted); }
+.tblock input:hover { background: var(--color-paper-3); }
+.tblock input:focus-visible { outline-color: var(--color-focus); }
+.tblock input:disabled { opacity: 0.55; cursor: not-allowed; }
+.tblock input[aria-invalid] { border-color: var(--color-error); }
+.tblock .role { font-size: var(--text-sm); color: var(--color-ink-2); }
+.tblock .tb-foot { grid-column: span 12; border: 0; padding: var(--space-sm) var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); min-height: 1lh; }
+.tblock .tb-foot:empty::before { content: "\00a0"; }
+
+/* Roles: three columns parted by heavy lines */
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-rule); }
+.roles > section { padding: var(--space-xl) var(--space-xl) var(--space-xl) 0; min-width: 0; }
+.roles > section + section { padding-left: var(--space-xl); border-left: var(--rule-heavy) solid var(--color-rule); }
+.roles h3 { margin-bottom: var(--space-md); }
+.roles .letter { display: block; font: 600 var(--text-display-s)/1 var(--font-display); margin-bottom: var(--space-md); }
+.roles ul { margin: var(--space-md) 0 0; padding-left: var(--space-lg); color: var(--color-ink-2); display: grid; gap: var(--space-xs); }
+.roles .owns { color: var(--color-ink); }
+.roles .backup { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Switcher */
+.seg { display: inline-flex; flex-wrap: wrap; border: var(--rule-hair) solid var(--color-rule); margin-bottom: var(--space-xl); }
+.seg button {
+  min-height: 44px; padding: 0 var(--space-lg); border: 0; border-radius: 0; background: transparent; color: var(--color-ink-2);
+  font: 500 var(--text-md)/1 var(--font-body); cursor: pointer; white-space: nowrap;
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+}
+.seg button + button { border-left: var(--rule-hair) solid var(--color-rule); }
+.seg button:hover { background: var(--color-paper-2); color: var(--color-ink); }
+.seg button:active { background: var(--color-paper-3); }
+.seg button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -4px; }
+.seg button:disabled { opacity: 0.55; cursor: not-allowed; }
+.seg button[aria-selected="true"] { background: var(--color-paper-3); color: var(--color-ink); box-shadow: inset 0 calc(-1 * var(--rule-heavy)) 0 var(--color-ink); }
+html:not(.js) .seg { display: none; }
+html:not(.js) .panel + .panel { margin-top: var(--space-2xl); }
+.panel h3.panel__title { margin-bottom: var(--space-lg); }
+
+/* Links list */
+.links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--gap-columns); border-top: var(--rule-hair) solid var(--color-rule); }
+.links li { padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule-2); min-width: 0; }
+.links a { font-weight: 500; color: var(--color-ink); }
+.links a:hover { text-decoration: none; }
+.links p { margin-top: var(--space-2xs); color: var(--color-ink-2); }
+.links .for { display: block; margin-top: var(--space-xs); font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Checklist */
+.checks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-hair) solid var(--color-rule); }
+.checks > section { padding: var(--space-xl) var(--space-xl) var(--space-xl) 0; min-width: 0; }
+.checks > section + section { padding-left: var(--space-xl); border-left: var(--rule-heavy) solid var(--color-rule); }
+.checks__head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-sm); margin-bottom: var(--space-lg); }
+.checks__head .num { font-size: var(--text-sm); color: var(--color-muted); }
+.checks ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2xs); }
+.check { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: var(--space-sm); align-items: start; padding-block: var(--space-xs); cursor: pointer; color: var(--color-ink-2); }
+.check input { appearance: none; width: 24px; height: 24px; margin: 0; border: var(--rule-hair) solid var(--color-ink); border-radius: 0; background: transparent; cursor: pointer; display: grid; place-items: center; transition: background-color var(--dur-micro) var(--ease-out); }
+.check input::after { content: ""; width: 12px; height: 6px; border-left: var(--rule-heavy) solid var(--color-accent-ink); border-bottom: var(--rule-heavy) solid var(--color-accent-ink); transform: rotate(-45deg) translate(1px, -1px); opacity: 0; }
+.check input:checked { background: var(--color-ink); }
+.check input:checked::after { opacity: 1; }
+.check input:hover { background: var(--color-paper-3); }
+.check input:checked:hover { background: var(--color-ink-2); }
+.check input:active { transform: scale(0.96); }
+.check input:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.check input:disabled { opacity: 0.55; cursor: not-allowed; }
+.check:has(input:checked) span { color: var(--color-muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+.status { min-height: 1lh; margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); }
+
+/* Footer: colophon block */
+.foot { padding-block: var(--space-2xl); background: var(--color-paper-3); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.foot__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-lg) var(--gap-columns); align-items: start; }
+.foot .wordmark { grid-column: 1 / span 4; font-size: var(--text-2xl); }
+.foot p { grid-column: 5 / span 8; color: var(--color-ink-2); font-size: var(--text-sm); max-width: 70ch; }
+.foot a { color: var(--color-ink); }
+
+
+/* Live calendar */
+.countdown { position: relative; z-index: var(--z-raised); display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-xs) var(--space-md); margin: 0 0 var(--space-xl); min-height: 1lh; }
+.countdown b { font: 600 var(--text-3xl)/1 var(--font-display); font-variant-numeric: tabular-nums; letter-spacing: var(--tracking-display); }
+.countdown span { color: var(--color-ink-2); }
+.cal__ev .t { border: 0; background: transparent; color: var(--color-ink-2); font: inherit; font-size: var(--text-sm); text-align: left; cursor: pointer; padding-top: var(--space-2xs); padding-bottom: var(--space-2xs); transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
+.cal__ev.end .t { text-align: right; }
+.cal__ev .t:hover { background: var(--color-paper-3); color: var(--color-ink); }
+.cal__ev .t:active { background: var(--color-paper); }
+.cal__ev .t:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.cal__ev .t:disabled { opacity: 0.55; cursor: not-allowed; }
+.cal__ev.is-sel .t { background: var(--color-paper-3); color: var(--color-ink); box-shadow: inset 0 0 0 1px var(--color-rule); }
+.cal__ev.is-past .t, .cal__ev.is-past .t b { color: var(--color-muted); }
+.cal__ev.is-past::before { background: var(--color-rule-2); }
+.cal__now { position: absolute; inset: 0; pointer-events: none; transform: translateX(0); transition: transform 1s linear; z-index: var(--z-base); }
+.cal__now-mark { position: absolute; left: 0; top: calc(50% - 3.25rem); height: 6.5rem; border-left: var(--rule-heavy) dashed var(--color-ink); }
+.cal__now-label { position: absolute; top: 100%; left: 0; transform: translateX(-50%); margin-top: var(--space-2xs); padding: 0 var(--space-xs); background: var(--color-ink); color: var(--color-accent-ink); font-size: var(--text-sm); font-weight: 500; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cal__now.flip .cal__now-label { transform: translateX(-100%); }
+.cal__detail { position: relative; z-index: var(--z-raised); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--space-xs) var(--gap-columns); margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.cal__detail .cal__dt { grid-column: 1 / span 4; font: 600 var(--text-title)/1.2 var(--font-display); }
+.cal__detail #d-when { grid-column: 1 / span 4; grid-row: 2; color: var(--color-ink-2); }
+.cal__detail #d-desc { grid-column: 5 / span 6; grid-row: 1 / span 2; color: var(--color-ink-2); }
+.cal__detail .cal__status { grid-column: 11 / span 2; grid-row: 1 / span 2; text-align: right; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* Tracks */
+.elev .gist { color: var(--color-ink); font-size: var(--text-lead); line-height: 1.45; }
+.elev dl > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: var(--space-md); padding-block: var(--space-sm); border-top: var(--rule-hair) solid var(--color-rule-2); }
+.elev dl { gap: 0; }
+.elev dd { color: var(--color-ink-2); }
+
+/* Problem page */
+.ctx { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-2xl) var(--gap-columns); align-items: start; }
+.prose { display: grid; gap: var(--space-md); max-width: 65ch; color: var(--color-ink-2); font-size: var(--text-lead); line-height: 1.6; }
+.asks { list-style: none; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.asks li { padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule-2); font: 600 var(--text-title)/1.3 var(--font-display); }
+.statement { max-width: 32ch; margin-bottom: var(--space-2xl); font: 600 var(--text-2xl)/1.25 var(--font-display); text-wrap: balance; }
+.outs .letter { font-size: var(--text-2xl); }
+.prose-line { max-width: 72ch; color: var(--color-ink-2); }
+.fill { padding: 0 0.25em; border: 1px dashed var(--color-muted); color: var(--color-muted); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+h1[tabindex="-1"]:focus, h2[tabindex="-1"]:focus { outline: none; }
+
+/* Responsive */
+@media (max-width: 60rem) {
+  .slab__inner { flex-direction: column; align-items: stretch; gap: 0; padding-top: var(--space-sm); }
+  .tabs { margin-inline: calc(-1 * var(--space-sm)); }
+  .hero h1, .hero__side, .view__head h1, .view__head h2.as-h1, .view__head .lead, .block__head h2, .block__head p { grid-column: 1 / -1; }
+  .cal { height: auto; display: grid; gap: var(--space-md); }
+  .cal__line, .cal__span, .cal__now { display: none !important; }
+  .cal__detail .cal__dt, .cal__detail #d-when, .cal__detail #d-desc, .cal__detail .cal__status { grid-column: 1 / -1; grid-row: auto; text-align: left; }
+  .ctx { grid-template-columns: minmax(0, 1fr); }
+  .elev dl > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-2xs); }
+  .cal__ev, .cal__ev.up, .cal__ev.down { position: relative; left: auto; top: auto; width: auto; border-left: var(--rule-hair) solid var(--color-rule); padding-left: var(--space-md); }
+  .cal__ev::before { display: none; }
+  .cal__ev .t, .cal__ev.up .t, .cal__ev.down .t, .cal__ev.end .t { position: static; max-width: none; width: 100%; padding: var(--space-2xs) var(--space-xs); text-align: left; }
+  .cal__ev.hard { border-left-width: var(--rule-heavy); }
+  .figs { row-gap: var(--space-xl); }
+  .elev, .roles, .checks, .io { grid-template-columns: minmax(0, 1fr); }
+  .elev > *, .elev > * + *, .roles > section, .roles > section + section, .checks > section, .checks > section + section { padding: var(--space-xl) 0; border-left: 0; }
+  .elev > * + *, .roles > section + section, .checks > section + section { border-top: var(--rule-heavy) solid var(--color-rule); }
+  .run { grid-template-columns: minmax(0, 1fr); border-top: 0; padding-top: 0; }
+  .run li { padding-left: var(--space-lg); border-left: var(--rule-hair) solid var(--color-rule); padding-bottom: var(--space-lg); }
+  .run li::after { display: none; }
+  .tblock .w4 { grid-column: span 12; border-right: 0; }
+  .index a { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+  .links { grid-template-columns: minmax(0, 1fr); }
+  .score b { font-size: var(--text-display-s); }
+  .score > div { padding: var(--space-lg); }
+  .foot .wordmark, .foot p { grid-column: 1 / -1; }
+}
+@media (max-width: 40rem) {
+  .reg thead { display: none; }
+  .reg, .reg tbody, .reg tr, .reg td { display: block; width: 100%; }
+  .reg tr { padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule-2); }
+  .reg td, .reg td:first-child { padding: var(--space-2xs) 0; border-bottom: 0; white-space: normal; width: auto; }
+  .reg td[data-label]::before { content: attr(data-label); display: block; font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
+  .reg td:first-child::before { display: none; }
+  .reg td:first-child { color: var(--color-ink); font-weight: 500; }
+  .reg tr.gate, .reg--sheet tr { padding-inline: var(--space-md); }
+  .reg tr.gate { background: var(--color-paper-3); }
+  .reg tr.gate td, .reg--sheet td:first-child { background: transparent; padding-left: 0; }
+  .reg--sheet tr td:first-child, .reg tr.gate td:first-child { padding-left: 0; }
+  .score { grid-template-columns: minmax(0, 1fr); }
+  .score > div + div { border-left: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+  .figs { grid-template-columns: minmax(0, 1fr); }
+  .figs > div { padding-left: 0; border-left: 0; }
+  .reg td, .reg th { padding-right: var(--space-sm); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .tabs a, .index a, .seg button, .check input, .cal__ev .t, .cal__now { transition: none; }
+  .btn:active, .check input:active { transform: none; }
+}
+
+</style>
+<script>document.documentElement.classList.add('js'); document.documentElement.lang = 'vi';</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Bỏ qua thanh điều hướng</a>
+
+<header class="slab">
+  <div class="container slab__inner">
+    <a class="wordmark" href="#tong-quan" aria-label="Sổ tay ZAIC 2026, về trang tổng quan">ZAIC 2026</a>
+    <nav aria-label="Các trang của sổ tay">
+      <ul class="tabs">
+        <li><a href="#tong-quan" data-tab="tong-quan">Tổng quan</a></li>
+        <li><a href="#de-bai" data-tab="de-bai">Đề bài</a></li>
+        <li><a href="#luat" data-tab="luat">Đánh giá và quy tắc</a></li>
+        <li><a href="#huong-tiep-can" data-tab="huong-tiep-can">Hướng tiếp cận</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= TỔNG QUAN ================= -->
+<section class="view" id="tong-quan" data-view aria-labelledby="h-tong-quan">
+  <div class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <h1 id="h-tong-quan">Zalo AI Challenge 2026<br>Bảng DataMate</h1>
+        <div class="hero__side">
+          <p class="lead">Đề bài, cách chấm, quy tắc và hướng tiếp cận của nhóm.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#de-bai">Đọc đề DataMate</a>
+            <a class="btn" href="#luat">Xem quy tắc</a>
+          </div>
+        </div>
+      </div>
+
+      <figure class="sheet" aria-labelledby="cal-cap" style="margin-inline: 0; margin-bottom: 0;">
+        <figcaption class="sheet__title" id="cal-cap"><span>Lịch cuộc thi, giờ Việt Nam</span><span class="num" id="clock"></span></figcaption>
+        <p class="countdown" id="countdown"></p>
+        <ol class="cal" id="cal" aria-label="Các mốc của cuộc thi">
+          <li class="cal__line" aria-hidden="true"><div class="dim"></div></li>
+          <li class="cal__span" id="cal-span" style="--x: 53.25%; --w: 6.37%;" aria-hidden="true"></li>
+          <li class="cal__ev up" style="--x: 0%;" data-at="2026-10-26T00:00:00+07:00" data-desc="Ban tổ chức phát bộ công cụ, dữ liệu train, bộ public test và phần mềm chấm điểm. Bảng xếp hạng public bắt đầu nhận bài."><button type="button" class="t" aria-pressed="false"><b>26/10</b>Bắt đầu</button></li>
+          <li class="cal__ev up hard" style="--x: 44.65%;" data-at="2026-11-16T23:59:00+07:00" data-desc="Hạn cuối gửi giải pháp hoàn chỉnh dạng Docker gồm mã train, mã suy luận và mô hình, qua link Google Drive công khai kèm checksum. Được gửi tối đa 2 lần, tính lần cuối."><button type="button" class="t" aria-pressed="false"><b>16/11 23:59</b>Nộp giải pháp</button></li>
+          <li class="cal__ev down" style="--x: 53.25%;" data-at="2026-11-20T09:00:00+07:00" data-desc="Ban tổ chức phát bộ private test. Các đội chạy bản đã đóng băng; bảng xếp hạng lúc này là tạm thời, còn chờ xác minh."><button type="button" class="t" aria-pressed="false"><b>20/11 9:00</b>Công bố private test</button></li>
+          <li class="cal__ev up" style="--x: 59.62%;" data-at="2026-11-23T23:59:00+07:00" data-desc="Hạn nộp kết quả trên private test. Sau mốc này Ban tổ chức chạy lại giải pháp và kiểm tra mã nguồn."><button type="button" class="t" aria-pressed="false"><b>23/11 23:59</b>Nộp kết quả cuối</button></li>
+          <li class="cal__ev up" style="--x: 78.72%;" data-at="2026-12-02T00:00:00+07:00" data-desc="Ban tổ chức công bố 2 đội dẫn đầu mỗi bảng sau khi xác minh."><button type="button" class="t" aria-pressed="false"><b>02/12</b>Công bố 2 đội đầu mỗi bảng</button></li>
+          <li class="cal__ev down end" style="--x: 100%;" data-at="2026-12-12T00:00:00+07:00" data-desc="Bảng xếp hạng cuối cùng, tính trên private test."><button type="button" class="t" aria-pressed="false"><b>12/12</b>Công bố xếp hạng cuối</button></li>
+          <li class="cal__now" id="cal-now" hidden aria-hidden="true"><span class="cal__now-mark"><span class="cal__now-label" id="now-label">Bây giờ</span></span></li>
+        </ol>
+        <div class="cal__detail" id="cal-detail" aria-live="polite">
+          <p class="cal__dt" id="d-title">Nộp giải pháp</p>
+          <p class="num" id="d-when">16/11/2026 23:59</p>
+          <p id="d-desc">Hạn cuối gửi giải pháp hoàn chỉnh dạng Docker.</p>
+          <p class="cal__status" id="d-status"></p>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="block" aria-labelledby="h-hai-bang">
+      <div class="block__head">
+        <h2 id="h-hai-bang">Các bảng thi</h2>
+      </div>
+      <div class="elev">
+        <div>
+          <h3>LifeMate</h3>
+          <p class="subtitle">Agentic AI That Turns Your Voice Into Action</p>
+          <dl>
+            <div><dt>Đầu vào</dt><dd>File ghi âm yêu cầu (giọng thật và tổng hợp, ba miền), ngữ cảnh người dùng, các ứng dụng đang kết nối</dd></div>
+            <div><dt>Agent</dt><dd>Lập kế hoạch và gọi đúng công cụ với đúng tham số; thiếu thông tin thì hỏi lại; không ứng dụng nào làm được thì không làm gì</dd></div>
+            <div><dt>Ví dụ</dt><dd>“Tôi sắp về nhà, bật điều hòa phòng khách 26 độ và đặt xe đón tôi”: agent bật điều hòa, rồi đặt xe từ chỗ làm về nhà</dd></div>
+            <div><dt>Chấm theo</dt><dd>Trạng thái các ứng dụng sau khi agent làm, không theo câu trả lời bằng lời</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>DataMate</h3>
+          <p class="subtitle">Talking To Your Data Through Agentic AI</p>
+          <dl>
+            <div><dt>Đầu vào</dt><dd>Các file dữ liệu của một doanh nghiệp nhỏ (CSV, Excel, SQLite), một câu hỏi đời thường, ngày “hôm nay”</dd></div>
+            <div><dt>Agent</dt><dd>Tìm đúng bảng, xử lý dữ liệu bẩn, tính theo quy tắc nghiệp vụ; dữ liệu không đủ thì nói rõ là không thể trả lời</dd></div>
+            <div><dt>Ví dụ</dt><dd>“sp bán dc nhiều nhất tuần rồi là gì”: agent trả về “Xi măng Hà Tiên PCB40 bao 50kg”</dd></div>
+            <div><dt>Chấm theo</dt><dd>Đúng được 1 điểm, sai bị trừ 1 điểm, bỏ qua được 0 điểm</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-con-so">
+      <h2 id="h-con-so">Giải thưởng</h2>
+      <div class="figs">
+        <div><b>12.000<small>USD</small></b><span>Tổng giải thưởng của cuộc thi</span></div>
+        <div><b>3.500<small>USD</small></b><span>Quán quân mỗi bảng</span></div>
+        <div><b>2.500<small>USD</small></b><span>Á quân mỗi bảng</span></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-trang">
+      <div class="block__head">
+        <h2 id="h-trang">Mục lục</h2>
+      </div>
+      <ol class="index">
+        <li><a href="#de-bai"><h3>Đề bài</h3><p>Bối cảnh, nhiệm vụ, đầu vào, đầu ra, ví dụ và các kiểu đáp án.</p></a></li>
+        <li><a href="#luat"><h3>Đánh giá và quy tắc</h3><p>Điểm PA, tám quy tắc kỹ thuật và cách nộp Docker.</p></a></li>
+        <li><a href="#huong-tiep-can"><h3>Hướng tiếp cận</h3><p>Template viết tay cộng LLM, khi nào trả lời và khi nào bỏ qua.</p></a></li>
+      </ol>
+    </section>
+  </div>
+</section>
+
+<!-- ================= ĐỀ BÀI ================= -->
+<section class="view" id="de-bai" data-view aria-labelledby="h-de-bai">
+  <div class="container">
+    <div class="view__head">
+      <h2 class="as-h1" id="h-de-bai">Mô tả đề bài</h2>
+    </div>
+
+    <section class="block" aria-labelledby="h-boi-canh" style="padding-top: 0;">
+      <div class="block__head"><h2 id="h-boi-canh">Bối cảnh</h2></div>
+      <div class="ctx">
+        <div class="prose">
+          <p>Bảng tính và cơ sở dữ liệu đơn giản là nơi phần lớn người Việt cất dữ liệu: chủ cửa hàng ghi doanh số và tồn kho, giáo viên ghi điểm, phòng khám ghi lượt khám và lô thuốc, phòng nhân sự ghi chấm công. Họ có dữ liệu nhưng gần như không ai viết được truy vấn.</p>
+          <p>Thứ họ cần là hỏi bằng tiếng Việt bình thường và nhận về câu trả lời đúng. Dữ liệu thi lấy từ thế giới hộ kinh doanh nhỏ ở Việt Nam, vốn nhiều và lộn xộn nhất, nhưng năng lực cần xây là tổng quát: hỏi đáp bằng ngôn ngữ tự nhiên trên dữ liệu dạng bảng.</p>
+        </div>
+        <ul class="asks" aria-label="Những câu người dùng muốn hỏi">
+          <li>Tháng này mặt hàng nào bán chạy nhất?</li>
+          <li>Tuần rồi bán được bao nhiêu ly trà sữa?</li>
+          <li>Còn khách nào nợ tiền chưa trả?</li>
+          <li>Thuốc nào trong kho sắp hết hạn?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-nhiem-vu">
+      <div class="block__head"><h2 id="h-nhiem-vu">Nhiệm vụ</h2></div>
+      <p class="statement">Xây một AI tác nhân nhận các file dữ liệu thô và một câu hỏi, rồi trả về đáp án đúng, hoặc từ chối khi dữ liệu không đủ để trả lời.</p>
+      <div class="roles outs">
+        <section aria-labelledby="o-1">
+          <span class="letter num" aria-hidden="true">+1 / −1</span>
+          <h3 id="o-1">Trả lời</h3>
+          <p class="owns">Đưa ra một giá trị có kiểu: số, phần trăm, chuỗi, ngày, đúng/sai, danh sách hoặc bảng.</p>
+          <p class="backup">Đúng được 1 điểm, sai bị trừ 1 điểm.</p>
+        </section>
+        <section aria-labelledby="o-2">
+          <span class="letter num" aria-hidden="true">+1 / −1</span>
+          <h3 id="o-2">Không thể trả lời</h3>
+          <p class="owns">Kiểu <code>unanswerable</code>: agent khẳng định dữ liệu không có thứ câu hỏi cần, ví dụ hỏi lợi nhuận khi dữ liệu không có giá vốn.</p>
+          <p class="backup">Đúng khi đáp án chuẩn cũng là không thể trả lời, ngược lại bị trừ 1 điểm.</p>
+        </section>
+        <section aria-labelledby="o-3">
+          <span class="letter num" aria-hidden="true">0</span>
+          <h3 id="o-3">Bỏ qua</h3>
+          <p class="owns">Kiểu <code>abstain</code>: agent chủ động không trả lời vì không đủ chắc chắn. Câu bị bỏ trống cũng tính là bỏ qua.</p>
+          <p class="backup">Luôn được 0 điểm, không cộng không trừ.</p>
+        </section>
+      </div>
+      <p class="note">Khác nhau ở chỗ: “không thể trả lời” là một đáp án, có thể đúng hoặc sai; “bỏ qua” là không đưa đáp án nào. Trả lời một câu khi chỉ chắc 50% thì kỳ vọng điểm bằng 0, ngang bỏ qua.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-dau-vao">
+      <div class="block__head"><h2 id="h-dau-vao">Đầu vào</h2></div>
+      <div class="reg-wrap">
+        <table class="reg">
+          <thead><tr><th scope="col">Thành phần</th><th scope="col">Ý nghĩa</th><th scope="col">Ví dụ</th></tr></thead>
+          <tbody>
+            <tr><td class="name" data-label="Thành phần">Gói dữ liệu</td><td data-label="Ý nghĩa">Dữ liệu của một doanh nghiệp: một hoặc nhiều file <code>.csv</code>, <code>.xlsx</code>, <code>.sqlite</code> và một <code>README.md</code> ngắn mô tả doanh nghiệp</td><td data-label="Ví dụ">Excel bán hàng nhiều sheet của một cửa hàng vật liệu xây dựng</td></tr>
+            <tr><td class="code" data-label="Thành phần">id</td><td data-label="Ý nghĩa">Mã câu hỏi, dùng lại khi nộp đáp án</td><td data-label="Ví dụ"><code>q_06de33fa21cc</code></td></tr>
+            <tr><td class="code" data-label="Thành phần">business_id</td><td data-label="Ý nghĩa">Câu hỏi thuộc doanh nghiệp nào, tức đọc gói dữ liệu nào</td><td data-label="Ví dụ"><code>biz_118</code></td></tr>
+            <tr><td class="code" data-label="Thành phần">question</td><td data-label="Ý nghĩa">Câu hỏi tiếng Việt đời thường: viết tắt, thiếu dấu, văn nói</td><td data-label="Ví dụ">sp bán dc nhiều nhất tuần rồi là gì</td></tr>
+            <tr><td class="code" data-label="Thành phần">as_of_date</td><td data-label="Ý nghĩa">Ngày được coi là “hôm nay” để hiểu “tháng này”, “tuần rồi”, “cùng kỳ năm ngoái”</td><td data-label="Ví dụ"><code>2026-03-04</code></td></tr>
+            <tr><td class="name" data-label="Thành phần">Rulebook và lịch âm</td><td data-label="Ý nghĩa">Dùng chung cho mọi doanh nghiệp: định nghĩa nghiệp vụ (đơn hợp lệ, giá vốn, công nợ…), tiêu chí xếp hạng mặc định, bảng đổi ngày dương sang âm</td><td data-label="Ví dụ">Câu hỏi “tháng Giêng năm nay” tra bằng lịch âm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-dau-ra">
+      <div class="block__head"><h2 id="h-dau-ra">Đầu ra</h2></div>
+      <div class="io">
+        <dl>
+          <div><dt>id</dt><dd>Giữ nguyên mã câu hỏi.</dd></div>
+          <div><dt>type</dt><dd>Một trong chín kiểu ở bảng dưới. Sai kiểu là sai, dù giá trị đúng.</dd></div>
+          <div><dt>answer</dt><dd>Giá trị theo đúng định dạng của kiểu đó. Không cần với kiểu không thể trả lời và bỏ qua.</dd></div>
+        </dl>
+        <div style="display: grid; gap: var(--space-xl); min-width: 0;">
+          <figure>
+            <figcaption>Một dòng của questions.jsonl</figcaption>
+<pre><code>{"id": "q_06de33fa21cc",
+ "business_id": "biz_118",
+ "question": "sp bán dc nhiều nhất tuần rồi là gì",
+ "as_of_date": "2026-03-04"}</code></pre>
+          </figure>
+          <figure>
+            <figcaption>Dòng tương ứng trong submission.jsonl</figcaption>
+<pre><code>{"id": "q_06de33fa21cc",
+ "type": "string",
+ "answer": "Xi măng Hà Tiên PCB40 bao 50kg"}</code></pre>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-vi-du">
+      <div class="block__head"><h2 id="h-vi-du">Ví dụ từng bước</h2></div>
+      <ol class="run">
+        <li><h3>Hiểu câu hỏi</h3><p>“sp” là sản phẩm, “dc” là được, “nhiều nhất” là lấy hạng 1 theo số lượng bán.</p></li>
+        <li><h3>Xác định thời gian</h3><p>as_of_date 04/03/2026 là thứ Tư; nếu tuần tính từ thứ Hai thì “tuần rồi” là 23/02 đến 01/03.</p></li>
+        <li><h3>Lọc dữ liệu</h3><p>Chỉ giữ đơn hợp lệ theo rulebook trong khoảng ngày đó.</p></li>
+        <li><h3>Tính và xếp hạng</h3><p>Cộng số lượng theo sản phẩm, xếp giảm dần; bằng nhau thì mã nhỏ hơn đứng trước.</p></li>
+        <li><h3>Xuất đáp án</h3><p>Ghi tên đúng như trong dữ liệu, kiểu string.</p></li>
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="h-kieu">
+      <div class="block__head"><h2 id="h-kieu">Kiểu đáp án</h2></div>
+      <div class="reg-wrap">
+        <table class="reg">
+          <thead><tr><th scope="col">Kiểu</th><th scope="col">Dùng cho</th><th scope="col">Ví dụ</th><th scope="col">Khi nào được tính đúng</th></tr></thead>
+          <tbody>
+            <tr><td class="name" data-label="Kiểu">Số <code>number</code></td><td data-label="Dùng cho">Tiền VND, số đếm, số lượng</td><td data-label="Ví dụ"><code>48250000</code></td><td data-label="Khi nào được tính đúng">Khớp chính xác; số nguyên hoặc làm tròn 2 chữ số thập phân</td></tr>
+            <tr><td class="name" data-label="Kiểu">Phần trăm <code>percent</code></td><td data-label="Dùng cho">Tỷ lệ, mức tăng giảm</td><td data-label="Ví dụ"><code>-12.45</code></td><td data-label="Khi nào được tính đúng">Khớp sau khi làm tròn 2 chữ số; đúng dấu</td></tr>
+            <tr><td class="name" data-label="Kiểu">Chuỗi <code>string</code></td><td data-label="Dùng cho">Tên sản phẩm, khách hàng, chi nhánh, thứ trong tuần</td><td data-label="Ví dụ"><code>"Sting dâu 330ml"</code></td><td data-label="Khi nào được tính đúng">So sau khi chuẩn hóa (NFC, chữ thường, ký tự đặc biệt thành khoảng trắng, gộp khoảng trắng), vẫn giữ dấu tiếng Việt; chấp nhận mọi cách viết tên có trong dữ liệu và cả mã, như <code>sp0042</code></td></tr>
+            <tr><td class="name" data-label="Kiểu">Ngày <code>date</code></td><td data-label="Dùng cho">Một ngày hoặc một tháng</td><td data-label="Ví dụ"><code>"2026-08-15"</code>, <code>"2025-09"</code></td><td data-label="Khi nào được tính đúng">Khớp chính xác <code>yyyy-mm-dd</code>; câu hỏi về tháng dùng <code>yyyy-mm</code></td></tr>
+            <tr><td class="name" data-label="Kiểu">Đúng/sai <code>boolean</code></td><td data-label="Dùng cho">Câu hỏi có hay không</td><td data-label="Ví dụ"><code>true</code></td><td data-label="Khi nào được tính đúng">Khớp chính xác</td></tr>
+            <tr><td class="name" data-label="Kiểu">Danh sách <code>list</code></td><td data-label="Dùng cho">Top-k tên hoặc số, có thứ tự</td><td data-label="Ví dụ"><code>["Cà phê sữa", "Bạc xỉu"]</code></td><td data-label="Khi nào được tính đúng">So từng vị trí theo thứ tự câu hỏi yêu cầu, hoặc mặc định của rulebook; mỗi phần tử so như chuỗi hoặc số</td></tr>
+            <tr><td class="name" data-label="Kiểu">Bảng <code>table</code></td><td data-label="Dùng cho">Bảng nhỏ gồm cột và dòng</td><td data-label="Ví dụ"><code>{"columns": […], "rows": […]}</code></td><td data-label="Khi nào được tính đúng">Cột khớp theo tên chuẩn hóa, không khớp thì theo vị trí; dòng so như một tập hợp, không cần đúng thứ tự</td></tr>
+            <tr><td class="name" data-label="Kiểu">Không thể trả lời <code>unanswerable</code></td><td data-label="Dùng cho">Dữ liệu không chứa thứ câu hỏi cần</td><td data-label="Ví dụ">Không có giá trị</td><td data-label="Khi nào được tính đúng">Chỉ đúng khi đáp án chuẩn cũng là không thể trả lời</td></tr>
+            <tr><td class="name" data-label="Kiểu">Bỏ qua <code>abstain</code></td><td data-label="Dùng cho">Agent chọn không trả lời</td><td data-label="Ví dụ">Không có giá trị</td><td data-label="Khi nào được tính đúng">Không đúng không sai, luôn 0 điểm</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Câu hỏi xếp hạng: xếp giảm dần theo tiêu chí trong câu hỏi, hoặc tiêu chí mặc định của rulebook nếu câu hỏi không nói; chỉ tính đơn hợp lệ; bằng nhau thì xếp theo mã tăng dần. Câu có hòa ngay ranh giới top-k (hoặc ở hạng 1 với câu “… nhất”) bị loại khỏi bộ test. Có ít hơn k ứng viên thì đáp án là tất cả.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-du-lieu">
+      <div class="block__head"><h2 id="h-du-lieu">Dữ liệu</h2></div>
+      <p class="prose-line">Chi tiết về các file, rulebook và lịch âm nằm ở tab Data trên trang cuộc thi, chỉ xem được khi đăng nhập: <span class="fill">chờ nhóm đăng nhập để bổ sung</span>.</p>
+    </section>
+  </div>
+</section>
+
+<!-- ================= LUẬT CHẤM ================= -->
+<section class="view" id="luat" data-view aria-labelledby="h-luat">
+  <div class="container">
+    <div class="view__head">
+      <h2 class="as-h1" id="h-luat">Đánh giá và quy tắc</h2>
+    </div>
+
+    <section class="block" aria-labelledby="h-pa" style="padding-top: 0;">
+      <h2 class="visually-hidden" id="h-pa">Cách tính điểm</h2>
+      <div class="score">
+        <div class="lead-cell"><b>+1</b><span>Trả lời đúng</span></div>
+        <div><b>0</b><span>Bỏ qua (abstain): không đưa đáp án</span></div>
+        <div><b>−1</b><span>Trả lời sai, kể cả đưa giá trị cho câu mà đáp án chuẩn là không thể trả lời (unanswerable)</span></div>
+      </div>
+      <p class="note">PA bằng tổng điểm chia cho số câu. Mọi câu cùng trọng số. Hòa điểm thì đội có tổng thời gian chạy lại ngắn hơn xếp trên, sau đó mới xét thời điểm nộp.</p>
+    </section>
+
+    <section class="block" aria-labelledby="h-quy-tac">
+      <div class="block__head">
+        <h2 id="h-quy-tac">Yêu cầu kỹ thuật</h2>
+      </div>
+      <div class="reg-wrap">
+        <table class="reg">
+          <thead><tr><th scope="col">Số</th><th scope="col">Quy tắc</th><th scope="col">Nội dung</th><th scope="col">Với nhóm</th></tr></thead>
+          <tbody>
+            <tr><td class="no" data-label="Số">1</td><td class="name" data-label="Quy tắc">Đội và điều kiện</td><td data-label="Nội dung">Theo quy định chung của Zalo AI Challenge 2026</td><td data-label="Với nhóm">Tối đa 5 người, khóa thành viên từ 17/11</td></tr>
+            <tr><td class="no" data-label="Số">2</td><td class="name" data-label="Quy tắc">Mô hình</td><td data-label="Nội dung">Open-weight, công bố trước 01/10/2026, giấy phép cho fine-tune; tổng tham số mọi model không quá 15B; được lượng tử hóa; khai báo trong README</td><td data-label="Với nhóm">Một LLM 7 đến 14B, gần như không còn chỗ cho model phụ</td></tr>
+            <tr><td class="no" data-label="Số">3</td><td class="name" data-label="Quy tắc">Không dịch vụ ngoài</td><td data-label="Nội dung">Chạy offline trong Docker, mạng bị tắt, không gọi API thương mại</td><td data-label="Với nhóm">Model nằm sẵn trong image; dùng ChatGPT hay Claude lúc phát triển vẫn được</td></tr>
+            <tr><td class="no" data-label="Số">4</td><td class="name" data-label="Quy tắc">Không người trong vòng lặp</td><td data-label="Nội dung">Cấm đáp án hard-code và logic gắn với câu hỏi hay mã doanh nghiệp cụ thể</td><td data-label="Với nhóm">Template phải tổng quát theo dạng câu hỏi</td></tr>
+            <tr><td class="no" data-label="Số">5</td><td class="name" data-label="Quy tắc">Thực thi mã</td><td data-label="Nội dung">Được sinh và chạy code trong container; thư mục dữ liệu chỉ đọc</td><td data-label="Với nhóm">File tạm ghi ra chỗ khác</td></tr>
+            <tr><td class="no" data-label="Số">6</td><td class="name" data-label="Quy tắc">Dữ liệu</td><td data-label="Nội dung">Dùng dữ liệu train, dữ liệu tự tổng hợp, dataset công khai; cấm dùng public hay private test để train</td><td data-label="Với nhóm">Tập dev cắt từ train</td></tr>
+            <tr><td class="no" data-label="Số">7</td><td class="name" data-label="Quy tắc">Máy chấm</td><td data-label="Nội dung">2 × RTX 5090 (32 GB mỗi card), RAM 512 GB; toàn bộ private test trong 6 giờ, tính cả nạp model; CUDA từ 12.8</td><td data-label="Với nhóm">Đo tốc độ, chừa dư ít nhất gấp đôi</td></tr>
+            <tr><td class="no" data-label="Số">8</td><td class="name" data-label="Quy tắc">Tái lập</td><td data-label="Nội dung">Điểm cuối là lần Ban tổ chức chạy lại; lệch PA quá 0,03 phải giải trình; quá giờ thì câu chưa ghi tính là bỏ qua</td><td data-label="Với nhóm">temperature 0, seed cố định, ghi từng câu ngay khi xong</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-nop">
+      <div class="block__head">
+        <h2 id="h-nop">Hướng dẫn gửi bài</h2>
+      </div>
+      <div class="reg-wrap">
+        <table class="reg reg--sheet">
+          <thead><tr><th scope="col">Vòng</th><th scope="col">Thời gian</th><th scope="col">Việc phải làm</th></tr></thead>
+          <tbody>
+            <tr><td class="name" data-label="Vòng">Public test</td><td class="code" data-label="Thời gian">26/10 đến 16/11</td><td data-label="Việc phải làm">Nộp <code>submission.jsonl</code>, tối đa 5 lần mỗi ngày; điểm chỉ để tham khảo</td></tr>
+            <tr class="gate"><td class="name" data-label="Vòng">Nộp giải pháp</td><td class="code" data-label="Thời gian">16/11, 23:59</td><td data-label="Việc phải làm">Docker gồm mã train, mã suy luận và dữ liệu; link Google Drive công khai kèm checksum; tối đa 2 lần, tính bản cuối</td></tr>
+            <tr><td class="name" data-label="Vòng">Private test</td><td class="code" data-label="Thời gian">20/11 9:00 đến 23/11 23:59</td><td data-label="Việc phải làm">Chạy bản đã đóng băng trên bộ private, nộp JSONL</td></tr>
+            <tr><td class="name" data-label="Vòng">Xác minh</td><td class="code" data-label="Thời gian">Sau 23/11</td><td data-label="Việc phải làm">Chạy lại Docker trên máy chấm, xem mã nguồn, kiểm tra gian lận; công bố 2 đội đầu ngày 02/12</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!-- ================= HƯỚNG TIẾP CẬN ================= -->
+<section class="view" id="huong-tiep-can" data-view aria-labelledby="h-htc">
+  <div class="container">
+    <div class="view__head">
+      <h2 class="as-h1" id="h-htc">Hướng tiếp cận</h2>
+    </div>
+
+    <section class="block" aria-labelledby="h-luong" style="padding-top: 0;">
+      <h2 class="visually-hidden" id="h-luong">Luồng xử lý</h2>
+      <ol class="run">
+        <li><h3>Phân tích câu hỏi</h3><p>LLM chuyển câu hỏi thành JSON: dạng câu hỏi và tham số.</p></li>
+        <li><h3>Chuẩn hóa tham số</h3><p>Khớp tên với dữ liệu, giải mốc thời gian theo as_of_date.</p></li>
+        <li><h3>Template</h3><p>Dạng đã cài: code pandas viết tay đúng rulebook.</p></li>
+        <li><h3>Dự phòng</h3><p>Dạng chưa cài: LLM sinh code, sửa lỗi, đồng thuận.</p></li>
+        <li><h3>Quyết định</h3><p>Trả lời, không thể trả lời hoặc bỏ qua; xuất đúng kiểu.</p></li>
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="h-quyet-dinh">
+      <div class="block__head">
+        <h2 id="h-quyet-dinh">Quy tắc quyết định</h2>
+      </div>
+      <div class="reg-wrap">
+        <table class="reg">
+          <thead><tr><th scope="col">Tình huống</th><th scope="col">Hệ thống làm</th></tr></thead>
+          <tbody>
+            <tr><td class="name" data-label="Tình huống">Template chạy được, tham số và tên khớp chắc chắn</td><td data-label="Hệ thống làm">Trả lời</td></tr>
+            <tr><td class="name" data-label="Tình huống">Template thấy thiếu cột hoặc dữ liệu cần thiết</td><td data-label="Hệ thống làm">Không thể trả lời (unanswerable)</td></tr>
+            <tr><td class="name" data-label="Tình huống">Không có template, các lời giải dự phòng đồng thuận cao</td><td data-label="Hệ thống làm">Trả lời</td></tr>
+            <tr><td class="name" data-label="Tình huống">Không có template, các lời giải lệch nhau</td><td data-label="Hệ thống làm">Bỏ qua (abstain)</td></tr>
+            <tr><td class="name" data-label="Tình huống">Bộ phân tích không chắc câu hỏi thuộc dạng nào</td><td data-label="Hệ thống làm">Chuyển sang dự phòng, không ép vào template</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-model">
+      <div class="block__head">
+        <h2 id="h-model">Lựa chọn mô hình</h2>
+      </div>
+      <div class="elev">
+        <div>
+          <h3>Một LLM khoảng 14B</h3>
+          <p>Phân tích câu hỏi và sinh code dự phòng tốt nhất trong giới hạn.</p>
+          <dl><dt>Đổi lại</dt><dd>Chậm hơn, hết ngân sách tham số cho model phụ</dd></dl>
+        </div>
+        <div>
+          <h3>Một LLM khoảng 7 đến 8B</h3>
+          <p>Nhanh; với hướng template, LLM chủ yếu chỉ phân tích câu hỏi nên model nhỏ có thể đủ.</p>
+          <dl><dt>Đổi lại</dt><dd>Nhánh dự phòng sinh code yếu hơn</dd></dl>
+        </div>
+      </div>
+      <p class="note">Hướng này hợp lệ khi template tổng quát theo dạng câu hỏi. Nhóm nên hỏi Ban tổ chức xác nhận với Quy tắc 4 trước khi dồn sức.</p>
+    </section>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="container foot__grid">
+    <a class="wordmark" href="#tong-quan">ZAIC 2026</a>
+    <p>Sổ tay nội bộ của nhóm thi bảng DataMate, Zalo AI Challenge 2026. Đề, luật và lịch tóm tắt từ <a href="https://challenge.zalo.ai/" target="_blank" rel="noopener">challenge.zalo.ai</a> ngày 27/10/2026; khi có khác biệt, trang chính thức là chuẩn.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var views = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[data-tab]'));
+  var ids = views.map(function (v) { return v.id; });
+  
+
+  function show(id, focus) {
+    if (ids.indexOf(id) === -1) id = 'tong-quan';
+    views.forEach(function (v) { v.hidden = v.id !== id; });
+    tabs.forEach(function (t) {
+      if (t.dataset.tab === id) t.setAttribute('aria-current', 'page');
+      else t.removeAttribute('aria-current');
+    });
+    var cur = tabs.filter(function (t) { return t.dataset.tab === id; })[0];
+    if (cur && cur.scrollIntoView) { try { cur.scrollIntoView({ block: 'nearest', inline: 'nearest' }); } catch (e) {} }
+    window.scrollTo(0, 0);
+    if (focus) {
+      var h = document.getElementById(id).querySelector('h1, h2');
+      if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    }
+  }
+  function fromHash() { return (location.hash || '').replace('#', '') || 'tong-quan'; }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if (ids.indexOf(id) === -1) return;
+    e.preventDefault();
+    try { history.pushState(null, '', '#' + id); } catch (err) {}
+    show(id, true);
+  });
+  window.addEventListener('hashchange', function () { show(fromHash(), true); });
+  window.addEventListener('popstate', function () { show(fromHash(), false); });
+  show(fromHash(), false);
+
+  /* Live calendar, Vietnam time */
+  (function () {
+    var cal = document.getElementById('cal');
+    var evs = Array.prototype.slice.call(cal.querySelectorAll('[data-at]'));
+    var nowEl = document.getElementById('cal-now'), nowLabel = document.getElementById('now-label');
+    var clock = document.getElementById('clock'), cd = document.getElementById('countdown');
+    var dT = document.getElementById('d-title'), dW = document.getElementById('d-when'), dD = document.getElementById('d-desc'), dS = document.getElementById('d-status');
+    var start = Date.parse('2026-10-26T00:00:00+07:00'), end = Date.parse('2026-12-12T00:00:00+07:00');
+    var span = end - start, DAY = 86400000;
+    var tz = 'Asia/Ho_Chi_Minh';
+    var fDate = new Intl.DateTimeFormat('vi-VN', { timeZone: tz, weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' });
+    var fTime = new Intl.DateTimeFormat('vi-VN', { timeZone: tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+    var fHM = new Intl.DateTimeFormat('vi-VN', { timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: false });
+    var fFull = new Intl.DateTimeFormat('vi-VN', { timeZone: tz, day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
+    var items = evs.map(function (li) {
+      var at = Date.parse(li.dataset.at), btn = li.querySelector('button');
+      li.style.setProperty('--x', (Math.min(1, Math.max(0, (at - start) / span)) * 100).toFixed(2) + '%');
+      return { li: li, btn: btn, at: at, title: btn.lastChild.textContent.trim(), desc: li.dataset.desc, midnight: /T00:00:00/.test(li.dataset.at) };
+    });
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function dur(ms) {
+      var s = Math.max(0, Math.floor(ms / 1000)), d = Math.floor(s / 86400); s -= d * 86400;
+      var h = Math.floor(s / 3600); s -= h * 3600; var m = Math.floor(s / 60); s -= m * 60;
+      return (d ? d + ' ngày ' : '') + pad(h) + ':' + pad(m) + ':' + pad(s);
+    }
+    function when(it) {
+      var t = fFull.format(new Date(it.at));
+      return it.midnight ? t.replace(/\s*00:00$/, '').replace(/^00:00\s*/, '') : t;
+    }
+    var selected = null, pinned = false;
+    function status(it, now) {
+      if (it.at > now) return 'Còn ' + dur(it.at - now);
+      var ago = Math.floor((now - it.at) / DAY);
+      return ago < 1 ? 'Vừa diễn ra hôm nay' : 'Đã diễn ra ' + ago + ' ngày trước';
+    }
+    function select(it, byUser) {
+      if (byUser) pinned = true;
+      selected = it;
+      items.forEach(function (x) { x.btn.setAttribute('aria-pressed', x === it ? 'true' : 'false'); x.li.classList.toggle('is-sel', x === it); });
+      dT.textContent = it.title; dW.textContent = when(it); dD.textContent = it.desc;
+      dS.textContent = status(it, Date.now());
+    }
+    items.forEach(function (it) {
+      it.btn.addEventListener('click', function () { select(it, true); });
+      it.btn.addEventListener('focus', function () { select(it, true); });
+      it.btn.addEventListener('mouseenter', function () { select(it, false); });
+    });
+    cal.addEventListener('mouseleave', function () { if (!pinned) select(next(Date.now()) || items[items.length - 1], false); });
+    function next(now) { for (var i = 0; i < items.length; i++) if (items[i].at > now) return items[i]; return null; }
+    var lastP = -1;
+    function tick() {
+      var now = Date.now(), d = new Date(now);
+      clock.textContent = fDate.format(d) + ', ' + fTime.format(d);
+      var p = (now - start) / span;
+      if (p >= 0 && p <= 1) {
+        nowEl.hidden = false;
+        var pc = (p * 100).toFixed(4);
+        if (pc !== lastP) { nowEl.style.transform = 'translateX(' + pc + '%)'; lastP = pc; }
+        nowLabel.textContent = 'Bây giờ ' + fHM.format(d);
+        nowEl.classList.toggle('flip', p > 0.85);
+      } else { nowEl.hidden = true; }
+      items.forEach(function (it) { it.li.classList.toggle('is-past', it.at <= now); });
+      var nx = next(now);
+      cd.innerHTML = '';
+      if (nx) {
+        var b = document.createElement('b'); b.textContent = dur(nx.at - now);
+        var s = document.createElement('span'); s.textContent = 'đến ' + nx.title + ', ' + when(nx);
+        cd.appendChild(b); cd.appendChild(s);
+      } else { cd.textContent = 'Cuộc thi đã kết thúc.'; }
+      if (!selected) select(nx || items[items.length - 1], false);
+      else dS.textContent = status(selected, now);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+})();
+</script>
+
+</body>
+</html>
